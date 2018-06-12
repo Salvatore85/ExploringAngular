@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { TaskCreatorComponent } from './task-creator/task-creator.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TaskCreatorComponent
   ],
   imports: [
     BrowserModule,
