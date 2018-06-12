@@ -9,7 +9,7 @@ import { Priority } from '../priority';
 })
 export class TaskListComponent implements OnInit {
 
-  @Input() task: Task[];
+  @Input() tasks: Task[];
 
   constructor() { }
 
