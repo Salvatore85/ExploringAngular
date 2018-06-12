@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from './task';
 import { Priority } from './priority'
+import { TaskService } from './task.service';
 
 @Component({
   selector: 'app-root',
@@ -20,47 +21,20 @@ import { Priority } from './priority'
 })
 export class AppComponent {
 
-  addTaskToList(task: Task): void {
-    task.id = this.tasks.reduce((prev, t) => prev > t.id ? prev : t.id, 0) + 1;
-    this.tasks.push(task);
-  }
-  
-  // title = 'app';
-  // low = Priority.Low;
-  // high = Priority.High;
-  
-  // newTask: Task = { id: 0, description: '', completed: false, priority: Priority.Normal };
-  // priorities = [Priority.Low, Priority.Normal, Priority.High];
-
-  // getNameForPriority(priority: Priority): string {
-  //   return Priority[priority];
-  // }
-
-  // getNextId(): number {
-  //   return this.tasks.length + 1;
-  // }
-
-  // addTask(task: Task): void {
-  //   task.id = this.getNextId();
-  //   this.tasks.push(task);
-  //   this.newTask = { id: 0, description: '', completed: false, priority: Priority.Normal };
-  //   event.preventDefault();
-  // }
-
   tasks: Task[];
-  constructor() {
-    // this.tasks = [
-    //   { id: 1, description: 'fix heisenburg', completed: false, priority: Priority.Normal},
-    //   { id: 1, description: 'set up fear-driven development', completed: false, priority: Priority.High},
-    //   { id: 1, description: 'fix hindenburg', completed: false, priority: Priority.Low}
-    // ];
+  constructor(private _taskService: TaskService) {
+    
   }
 
   ngOnInit(): void {
-    this.tasks = [
-      { id: 1, description: 'fix heisenburg', completed: false, priority: Priority.Normal},
-      { id: 1, description: 'set up fear-driven development', completed: false, priority: Priority.High},
-      { id: 1, description: 'fix hindenburg', completed: false, priority: Priority.Low}
-    ];
+    this.tasks = this._taskService.getAllTasks();
+  }
+
+  addTaskToList(task: Task): void {
+    this.tasks = this._taskService.addTask(task);
+  }
+
+  removeTaskFromList(task: Task): void {
+    this.tasks = this._taskService.removeTask(task);
   }
 }
