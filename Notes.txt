@@ -1,4 +1,8 @@
 11-6-2018
 
-Augury - Angular debugging tool (browser plugin).
-Use backticks (`) to write 1 statement in multiple lines. 
+- Augury - Angular debugging tool (browser plugin).
+- Use backticks (`) to write 1 statement in multiple lines. 
+- Components zijn directives.
+- @ViewChild om componenten te linken
+- @ContentChild zoekt naar content wat refereert naar ng-content.
+- Ieder component heeft een lifecycle met verschillende hooks.
