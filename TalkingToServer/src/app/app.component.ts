@@ -28,13 +28,13 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.tasks = this._taskService.getAllTasks();
+    this.tasks$ = this._taskService.getAllTasks();
   }
 
   addTaskToList(task: Task): void {
-    this.tasks = this._taskService.addTask(task);
+    this.tasks$ = this._taskService.addTask(task);
   }
   removeTaskFromList(task: Task): void {
-    this.tasks = this._taskService.removeTask(task);
+    this.tasks$ = this._taskService.removeTask(task);
   }
 }

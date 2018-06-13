@@ -88,9 +88,8 @@ export class TaskEditorComponent implements OnInit, OnChanges {
     this.task.startDate = moment(this.form.value.startDate).toDate();
     this.task.endDate = moment(this.form.value.endDate).toDate();
   
-    this._taskService.updateTask(this.task);
-  
-    this.close();
+    this._taskService.updateTask(this.task)
+    .subscribe(() => this.close());
   }
   
 }
