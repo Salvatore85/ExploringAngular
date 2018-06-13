@@ -1,3 +1,4 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="w3-container">
 <div class="w3-modal">
   <div class="w3-modal-content">
     <div>
@@ -12,12 +13,16 @@
 
           <div class="w3-group">
             <label>Description</label>
-            <input class="w3-input">
+            <input formControlName="description" class="w3-input">
+            <div *ngIf="form.controls['description'].dirty">
+            <p *ngIf="!form.controls['description'].errors?.required" class="w3-red">This field is required</p>
+            <p *ngIf="form.controls['description'].errors?.maxlength" class="w3-red"> This value is to long!</p>
+          </div>
           </div>
 
           <div class="w3-group">
             <label>Priority</label>
-            <select class="w3-select">
+            <select formControlName="priority" class="w3-select">
                 <option *ngFor="let priority of priorities"
                         [ngValue]="priority">
                   {{getNameForPriority(priority)}}
@@ -27,16 +32,21 @@
 
           <div class="w3-group">
             <label>Start Date</label>
-            <input class="w3-input" type="date">
+            <input formControlName="startDate" class="w3-input" type="date">
           </div>
 
           <div class="w3-group">
             <label>End Date</label>
-            <input class="w3-input" type="date">
+            <input formControlName="endDate" class="w3-input" type="date">
+            <div *ngIf="form.controls['startDate'].dirty || form.controls['endDate'].dirty">
+              <p *ngIf="form.controls['endDate'].errors?.notBefore" class="w3-red">
+                End date can't be smaller than start date
+              </p>
+            </div>
           </div>
 
           <div class="w3-group">
-            <button type="submit" class="w3-btn w3-padding w3-teal">Save</button>
+            <button type="submit" class="w3-btn w3-padding w3-teal" [disabled]="!form.valid">Save</button>
           </div>
 
         </form>
@@ -45,3 +55,4 @@
     </div>
   </div>
 </div>
+</form>
