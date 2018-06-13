@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -21,7 +21,9 @@ import { TaskEditorComponent } from './task-editor/task-editor.component';
     TaskEditorComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, 
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [{ provide: TaskService, useClass: MockTaskService }],
   bootstrap: [AppComponent]
