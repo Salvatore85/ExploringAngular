@@ -11,3 +11,4 @@
 - Reactive programming met rxjs.
 - Todd Motto angular blog.
 - Jasmine voor Angular testing.
+- Navigation interception om manipulaties tijdens het navigeren te beheersen.
