@@ -10,6 +10,8 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { TaskService } from './task.service';
 import { MockTaskService } from './mock-task.service';
 import { TaskEditorComponent } from './task-editor/task-editor.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpTaskService } from './http-task.service';
 
 
 @NgModule({
@@ -21,9 +23,9 @@ import { TaskEditorComponent } from './task-editor/task-editor.component';
     TaskEditorComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule
   ],
-  providers: [{ provide: TaskService, useClass: MockTaskService }],
+  providers: [{ provide: TaskService, useClass: HttpTaskService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
