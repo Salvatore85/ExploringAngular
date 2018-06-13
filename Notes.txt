@@ -8,4 +8,6 @@
 - Ieder component heeft een lifecycle met verschillende hooks.
 - trackBy: Om te voorkomen dat een collectie niet volledig opnieuw geladen wordt. 
 - In angular 6+ registreer je een service met de @Injectable decorator. 
-- 
+- Reactive programming met rxjs.
+- Todd Motto angular blog.
+- Jasmine voor Angular testing.
