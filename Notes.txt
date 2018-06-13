@@ -12,3 +12,7 @@
 - Todd Motto angular blog.
 - Jasmine voor Angular testing.
 - Navigation interception om manipulaties tijdens het navigeren te beheersen.
+- Lazy loading van componenten om componenten pas te laden op het moment dat ze aangeroepen worden.
+- Vanaf Angular 6 is het eenvoudig om je eigen libraries te maken.
+- Aanpassing in een library worden niet automatisch meegenomen bij een npm start. Eerst de lib builden/publishen.
+- Nx: Nrwl Extensions for Angular om enterprise applicatie te maken (monolitisch). https://nrwl.io/nx
