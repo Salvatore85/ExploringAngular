@@ -3,6 +3,7 @@ import { AbstractControl, ValidatorFn } from '@angular/forms';
 export class CustomValidators {
     
     static notBefore(notBeforeControl: AbstractControl): ValidatorFn {
+        
         return (control: AbstractControl): {[key: string]: any} => {
             let currentDate = new Date(control.value);
             let notBeforeDate = new Date(notBeforeControl.value);
