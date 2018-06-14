@@ -1,0 +1,7 @@
+<h1>Todo List</h1>
+<div>
+  <input #todo>
+  <button (click)="addTodo(todo.value);todo.value = '';">Add todo</button>
+</div>
+<todo-list></todo-list>
+<filter-list></filter-list>
