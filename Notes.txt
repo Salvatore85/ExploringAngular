@@ -24,3 +24,4 @@
 - learnrxjs.io 
 - reactivex.io
 - redux: stage management pattern
+- Anguler 6 snippets: VS Code add-on
