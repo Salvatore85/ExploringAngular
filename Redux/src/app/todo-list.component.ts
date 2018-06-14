@@ -23,23 +23,28 @@ import { toggleTodo, removeTodo } from "./actions/store";
   ]
 })
 export class TodoListComponent implements OnDestroy {
+  unsubscribe: Unsubscribe;
   currentFilter: string;
   todos: TodoItem[];
 
   constructor( @Inject(APP_STORE) private store: Store<StoreShape>) {
-
+    this.unsubscribe = this.store.subscribe(() => {
+      let state = this.store.getState();
+      this.currentFilter = state.currentFilter;
+      this.todos = state.todos; 
+    });
   }
 
   private onTodoClick(id) {
-    
+    this.store.dispatch(toggleTodo(id));
   }
 
   private removeTodo(id) {
-    
+    this.store.dispatch(removeTodo(id));
   }
 
   ngOnDestroy() {
     //remove listener
-    
+    this.unsubscribe();
   }
 }
