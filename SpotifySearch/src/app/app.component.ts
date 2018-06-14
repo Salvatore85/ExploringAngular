@@ -31,7 +31,26 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // add code here
+    
+    let startedType$ = this.type$.pipe(startWith(this.form.controls.type.value));
+
+    let debouncedTerm$ = this.term$.pipe(
+      filter(term => term && term.length > 2),
+      debounceTime(300),
+      distinctUntilChanged());
+
+      combineLatest(debouncedTerm$, this.type$).pipe(
+        tap(arr => this.error = null),
+        switchMap(([term, type]) =>
+      this.spotifySearchService.search(term, type).pipe(
+        catchError(err => {
+          this.error = err;
+          return of ([]);
+        })
+      ))
+      )
+    .subscribe(results => this.results = results);
+
   }
 
 }
