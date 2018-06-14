@@ -23,3 +23,4 @@
 - Subject om data te filteren uit observables.
 - learnrxjs.io 
 - reactivex.io
+- redux: stage management pattern
