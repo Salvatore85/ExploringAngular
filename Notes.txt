@@ -16,3 +16,10 @@
 - Vanaf Angular 6 is het eenvoudig om je eigen libraries te maken.
 - Aanpassing in een library worden niet automatisch meegenomen bij een npm start. Eerst de lib builden/publishen.
 - Nx: Nrwl Extensions for Angular om enterprise applicatie te maken (monolitisch). https://nrwl.io/nx
+- Observable: A data source pushing data to a subsciber
+- Iterable: Pull from a collection and process.
+- Er zijn Hot, Cold en semi Hot observables.
+- rxmarbles.com voor meer info over observables.
+- Subject om data te filteren uit observables.
+- learnrxjs.io 
+- reactivex.io
