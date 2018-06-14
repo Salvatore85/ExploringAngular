@@ -1,0 +1,20 @@
+<h1>Spotify Search</h1>
+<form [formGroup]="form" novalidate>
+
+  <label>
+    <span>Term</span>
+    <input type="text" formControlName="term">
+  </label>
+
+  <label>
+    <span>Type</span>
+    <select formControlName="type">
+      <option *ngFor="let type of types" [value]="type">{{type}}</option>
+  </select>
+  </label>
+
+</form>
+<section>
+  <p class="warning">{{error}}</p>
+  <p *ngFor="let result of results">{{result}}</p>
+</section>
