@@ -44,7 +44,7 @@ export class ViewTrackComponent implements OnInit, OnDestroy {
 
   }
 
-  ngOnDestroy() {
+  ngOnDestroy() { 
     if (this.sub) {
       this.sub.unsubscribe();
     }
