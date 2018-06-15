@@ -22,6 +22,8 @@
 - rxmarbles.com voor meer info over observables.
 - Subject om data te filteren uit observables.
 - learnrxjs.io 
+- Angular Material voor Android look-and-feel.
 - reactivex.io
 - redux: stage management pattern
-- Anguler 6 snippets: VS Code add-on
+- Angular 6 snippets: VS Code add-on
+- Angular Elements: om dynamisch elementen toe te voegen. 
