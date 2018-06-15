@@ -1,0 +1,11 @@
+<div class="w3-container" [formGroup]="parent">
+  <p>
+    <label>Course</label>
+    <input class="w3-input" type="text" formControlName="name">
+    <span *ngIf="parent.get('name').hasError('required') && parent.get('name').touched">this input is required</span>
+  </p>
+  <p>
+    <label>Date</label>
+    <input class="w3-input" type="date" formControlName="date">
+  </p>
+</div>

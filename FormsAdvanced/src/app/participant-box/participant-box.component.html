@@ -1,0 +1,26 @@
+<div [formGroup]="parent" class="w3-card-4 u2u-container-item w3-margin">
+
+    <div class="w3-container w3-light-blue">
+      <h2>Participant #{{index + 1}}
+        <a href (click)="removeParticipantBox(index, $event)">
+          <i class="material-icons w3-right">delete</i>
+        </a>
+      </h2>
+    </div>
+
+    <div class="w3-container">
+      <p>
+        <label>First Name</label>
+        <input class="w3-input" formControlName="firstname">
+      </p>
+      <p>
+        <label>Last Name</label>
+        <input class="w3-input" formControlName="lastname">
+      </p>
+      <p>
+        <label>Email</label>
+        <input class="w3-input" type="email" formControlName="email">
+      </p>
+    </div>
+
+</div>

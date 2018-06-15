@@ -13,9 +13,26 @@ export class AppComponent {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.participants = this.fb.array([this.createItem()]);
+
     this.registrationForm = this.fb.group({
-      name: '',
+      name: ['', Validators.required ],
       date: '',
+      participants: this.participants
+    });
+  }
+
+  addParticipant(): void {
+    this.participants.push(this.createItem());
+  }
+
+
+  removeParticipant(index: number): void {
+    this.participants.removeAt(index);
+  }
+
+  createItem(): FormGroup {
+    return this.fb.group({
       firstname: '',
       lastname: '',
       email: ''

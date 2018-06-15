@@ -1,51 +1,9 @@
 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
 
-  <div class="w3-container">
-    <p>
-      <label>Course</label>
-      <input class="w3-input" type="text" formControlName="name">
-    </p>
-    <p>
-      <label>Date</label>
-      <input class="w3-input" type="date" formControlName="date">
-    </p>
-  </div>
+  <app-course-info [parent]="registrationForm"></app-course-info>
 
-  <div class="u2u-container">
-    <div class="w3-card-4 u2u-container-item w3-margin">
+  <app-participants-info [parent]="registrationForm" (onAddRequested)="addParticipant()" (onRemoveRequested)="removeParticipant($event)"></app-participants-info>
 
-      <div class="w3-container w3-light-blue">
-        <h2>Participant #
-          <a href>
-            <i class="material-icons w3-right">delete</i>
-          </a>
-        </h2>
-      </div>
-
-      <div class="w3-container">
-        <p>
-          <label>First Name</label>
-          <input class="w3-input" formControlName="firstname">
-        </p>
-        <p>
-          <label>Last Name</label>
-          <input class="w3-input" formControlName="lastname">
-        </p>
-        <p>
-          <label>Email</label>
-          <input class="w3-input" type="email" formControlName="email">
-        </p>
-      </div>
-
-    </div>
-
-    <div class="u2u-container-item u2u-add-item w3-margin w3-card-4 w3-light-blue">
-      <i class="material-icons w3-jumbo">add</i>
-    </div>
-
-  </div>
-
-
-  <input type="submit" class="w3-btn w3-light-blue w3-margin" value="Book">
+  <input type="submit" class="w3-btn w3-light-blue w3-margin" value="Book" [disabled]="!registrationForm.valid">
 
 </form>

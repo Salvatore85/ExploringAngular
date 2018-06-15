@@ -1,0 +1,11 @@
+<div class="u2u-container" [formGroup]="parent">
+
+  <div formArrayName="participants" *ngFor="let participant of participants.controls; let i = index;">
+    <app-participant-box [parent]="participant" [index]="i" (onRemoveRequested)="onRemoveRequested.emit($event)">
+    </app-participant-box>
+  </div>
+
+  <div class="u2u-container-item u2u-add-item w3-margin w3-card-4 w3-light-blue" (click)="onAddRequested.emit()">
+    <i class="material-icons w3-jumbo">add</i>
+  </div>
+</div>
