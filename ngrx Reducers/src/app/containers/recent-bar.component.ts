@@ -13,7 +13,7 @@ import * as uiActions from './../actions/ui';
   template: `
   <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" [class.side-closed]="!isOpen">
     <button (click)="onCloseRequested.emit()" class="w3-bar-item w3-button w3-large">Recently viewed &times;</button>
-    <sp-recent-list [tracks]="tracks" (onSelect)="onSelect($event)"></sp-recent-list>
+    <sp-recent-list [tracks]="tracks$ | async" (onSelect)="onSelect($event)"></sp-recent-list>
   </div>
   `,
   styles: [`
@@ -24,15 +24,17 @@ import * as uiActions from './../actions/ui';
 export class RecentSidebarComponent implements OnInit {
   @Input() isOpen: boolean;
   @Output() onCloseRequested = new EventEmitter();
-  tracks: Track[] = [new Track('1', 'name1', 'artist1', '', '', ''), new Track('2', 'name2', 'artist2', '', '', '')];
+  tracks$: Observable<Track[]>;
 
 
-  constructor(
+  constructor(private _store: Store<fromRoot.State>,
     private _route: ActivatedRoute,
     private _router: Router) { }
 
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.tracks$ = this._store.select(state => state.recent.ids.map(id => state.tracks.entities[id]));
+   }
 
   onSelect(trackId: string) {
     this._router.navigate(['/view', trackId], { relativeTo: this._route });

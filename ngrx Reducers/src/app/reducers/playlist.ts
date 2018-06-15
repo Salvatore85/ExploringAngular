@@ -1,29 +1,35 @@
-import { PlayListActions, PlayListActionTypes } from '../actions/playlist';
+//import
+import { PlaylistActions, PlaylistActionTypes } from '../actions/playlist';
 
+//shape
 export interface State {
-    ids: string[];
+  ids: string[];
 };
 
+//initial state
 const initialState: State = {
-    ids: []
+  ids: []
 };
 
-export function reducer(state = initialState, action: PlayListActions) :State{
-    switch (action.type) {
-        case PlayListActionTypes.AddTrack: {
-            const trackId = action.payload;
-            return {
-                ids: [...state.ids, trackId],
-            };
-        }
-        case PlayListActionTypes.RemoveTrack: {
-            const trackId = action.payload;
-            return {
-                ids: state.ids.filter(id => id !== trackId)
-            };
-        }
-        default: {
-            return state;
-        }
+//reducer
+export function reducer(state = initialState, action: PlaylistActions): State {
+  switch (action.type) {
+    case PlaylistActionTypes.AddTrack: {
+      const trackId = action.payload;
+      return {
+        ids: [...state.ids, trackId],
+      };
     }
+
+    case PlaylistActionTypes.RemoveTrack: {
+      const trackId = action.payload;
+      return {
+        ids: state.ids.filter(id => id !== trackId)
+      };
+    }
+
+    default: {
+      return state;
+    }
+  }
 }

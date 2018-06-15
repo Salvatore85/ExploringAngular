@@ -27,6 +27,7 @@ import { SpotifySearchService } from './services/spotify.service';
 import { AuthService } from "./services/auth.service";
 import { AuthenticatedGuard } from "./services/authenticated.guard";
 import { reducers } from "./reducers/index";
+import { SearchEffects } from './effects/search';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { reducers } from "./reducers/index";
 
     StoreModule.forRoot(reducers),
     environment.production ?  [] : StoreDevtoolsModule.instrument({ maxAge: 50 }),
+    EffectsModule.forRoot([SearchEffects]),
   ],
   declarations: [
     AppComponent,
