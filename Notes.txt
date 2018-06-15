@@ -27,3 +27,4 @@
 - redux: stage management pattern
 - Angular 6 snippets: VS Code add-on
 - Angular Elements: om dynamisch elementen toe te voegen. 
+- https://online.u2u.be 

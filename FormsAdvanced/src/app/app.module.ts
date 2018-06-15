@@ -7,6 +7,9 @@ import { ParticipantBoxComponent } from './participant-box/participant-box.compo
 import { CourseInfoComponent } from './course-info/course-info.component';
 import { ParticipantsInfoComponent } from './participants-info/participants-info.component';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +19,10 @@ import { ParticipantsInfoComponent } from './participants-info/participants-info
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule, 
+    MatButtonModule, 
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
